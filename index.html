@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega assignment 1</title>
+    <style>
+        body{
+            text-align: center;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+        }
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: #ddd;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.3rem 0.2rem #888;
+}
+input{
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    color: royalblue;
+}
+.value-container{
+    background: #fefefe;
+    display: flex;
+    justify-content: flex-start, space-around;
+    align-items: center;
+    /* gap: 0.5rem; */
+    border-radius: 1rem;
+    padding-left: 0.5rem;
+}
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <h1>Unit Converter</h1>
+        <div class="value-container">
+        <label for="feet">Feet</label>
+        <input type="text" name="feet" id="feet">
+        </div>
+        <div class="button-container">
+        <input type="submit" id="button" value="Convert to cm" style="background-color: #333; color: white;">
+        </div>
+        <div id="result"></div>
+    </form>
+    <script>
+        var button = document.getElementById('button');
+        button.addEventListener("click", function(a){
+            var feet = parseFloat(document.getElementById('feet').value);
+            var result = document.querySelector('#result');
+            a.preventDefault();
+            if(isNaN(feet)){
+                result.innerHTML = "Please enter a number";
+            }
+            else{
+                result.textContent = `${feet * 30.48 } cm`;
+            }
+            });
+                
+    </script>
+</body>
+</html>
